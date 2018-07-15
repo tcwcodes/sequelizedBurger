@@ -1,0 +1,59 @@
+<container>
+
+    <div class="jumbotron">
+        <h1 class="display-4">Bob's Burgers</h1>
+        <hr class="my-4">
+        <h3>Enter a burger you want to eat, then click the "submit" button.</h3>
+        <h3>Click the burger to eat it!</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-4">
+            <h2>Burgers you haven't eaten</h2>
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li>
+                    <button class="btn btn-primary burger-btn" data-id="{{this.id}}" data-devoured="{{this.devoured}}">{{this.burger_name}}</button>
+                    <p></p>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Burgers you've eaten</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>
+                    <button class="btn btn-primary" data-id="{{this.id}}" data-devoured="{{this.devoured}}">{{this.burger_name}}</button>
+                    <p></p>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <form role="form">
+                <div class="form-group">
+                    <label for="burger-name">What'll it be?</label>
+                    <input type="text" class="form-control" id="burger-input">
+                </div>
+                <button type="submit" class="btn btn-primary" id="burger-submit">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div> 
+
+</container>
